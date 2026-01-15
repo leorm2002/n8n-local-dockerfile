@@ -16,3 +16,4 @@ services:
       - TZ=Europe/Rome
     volumes:
       - ./n8n_work_data:/home/node/.n8n-files
+      - ./n8n_install_data:/home/node/.n8n

@@ -21,7 +21,8 @@ services:
     volumes:
       - n8n_data:/home/node/.n8n
       - n8n_files:/home/node/.n8n-files
-      
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
   task-runners:
     image: n8nio/runners:latest
     container_name: n8n-runners
@@ -37,3 +38,4 @@ services:
 volumes:
   n8n_data:
   n8n_files:
+  

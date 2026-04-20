@@ -1,0 +1,12 @@
+FROM n8nio/runners:latest
+
+# Passiamo all'utente root per installare i pacchetti
+USER root
+
+# Installiamo la libreria python-docx
+# (Usiamo --break-system-packages se necessario nelle nuove versioni di Alpine/Python, 
+# ma partiamo con il comando standard)
+RUN pip install --no-cache-dir python-docx
+
+# Torniamo all'utente di default per ragioni di sicurezza
+USER node

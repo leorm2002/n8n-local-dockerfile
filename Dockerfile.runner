@@ -1,7 +1,7 @@
-FROM n8nio/runners:latest
+FROM n8nio/runners:2.16.2
 
 USER root
 
-RUN pip install --no-cache-dir python-docx
+RUN cd /opt/runners/task-runner-python && uv pip install python-docx
 
 USER runner

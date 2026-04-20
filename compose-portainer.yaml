@@ -36,8 +36,8 @@ services:
       - N8N_RUNNERS_AUTH_TOKEN=AAAAAA
       - GENERIC_TIMEZONE=Europe/Rome
       - TZ=Europe/Rome
-      - N8N_RUNNERS_STDLIB_ALLOW=re,io,base64,dataclasses,typing
-      - N8N_RUNNERS_EXTERNAL_ALLOW=docx
+      - N8N_RUNNERS_STDLIB_ALLOW=*
+      - N8N_RUNNERS_EXTERNAL_ALLOW=*
     depends_on:
       - n8n
 

@@ -1,10 +1,7 @@
 FROM n8nio/runners:latest
 
-# Switch to root to install packages
 USER root
 
-# Install python-docx
 RUN pip install --no-cache-dir python-docx
 
-# Switch back to the correct runner user
-USER n8n
+USER runner

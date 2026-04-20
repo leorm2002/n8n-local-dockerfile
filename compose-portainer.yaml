@@ -1,4 +1,5 @@
 version: '3.8'
+
 services:
   n8n:
     image: n8nio/n8n:latest
@@ -23,20 +24,23 @@ services:
       - n8n_files:/home/node/.n8n-files
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
+
   task-runners:
-      build: 
-        context: .
-        dockerfile: Dockerfile.runner
-      container_name: n8n-runners
-      restart: unless-stopped
-      environment:
-        - N8N_RUNNERS_TASK_BROKER_URI=http://n8n:5679
-        - N8N_RUNNERS_AUTH_TOKEN=AAAAAA
-        - GENERIC_TIMEZONE=Europe/Rome
-        - TZ=Europe/Rome
-      depends_on:
-        - n8n
+    build:
+      context: .
+      dockerfile: Dockerfile.runner
+    container_name: n8n-runners
+    restart: unless-stopped
+    environment:
+      - N8N_RUNNERS_TASK_BROKER_URI=http://n8n:5679
+      - N8N_RUNNERS_AUTH_TOKEN=AAAAAA
+      - GENERIC_TIMEZONE=Europe/Rome
+      - TZ=Europe/Rome
+      - N8N_RUNNERS_EXTERNAL_ALLOW=python-docx
+      - N8N_RUNNERS_STDLIB_ALLOW=*
+    depends_on:
+      - n8n
+
 volumes:
   n8n_data:
   n8n_files:
-  

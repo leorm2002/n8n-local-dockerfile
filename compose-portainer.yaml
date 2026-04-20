@@ -21,7 +21,7 @@ services:
       - N8N_NATIVE_PYTHON_RUNNER=true
     volumes:
       - n8n_data:/home/node/.n8n
-      - n8n_files:/home/node/.n8n-files
+      - n8n_files:/shared-files
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
 
@@ -38,6 +38,8 @@ services:
       - TZ=Europe/Rome
     depends_on:
       - n8n
+    volumes:
+      - n8n_files:/shared-files
 
 volumes:
   n8n_data:

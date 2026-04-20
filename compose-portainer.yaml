@@ -36,8 +36,6 @@ services:
       - N8N_RUNNERS_AUTH_TOKEN=AAAAAA
       - GENERIC_TIMEZONE=Europe/Rome
       - TZ=Europe/Rome
-    volumes:
-      - ./n8n-task-runners.json:/etc/n8n-task-runners.json:ro
     depends_on:
       - n8n
 

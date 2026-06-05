@@ -2,7 +2,7 @@ FROM n8nio/runners:2.16.2
 
 USER root
 
-RUN cd /opt/runners/task-runner-python && uv pip install python-docx
+RUN cd /opt/runners/task-runner-python && uv pip install python-docx openpyxl
 
 COPY n8n-task-runners.json /etc/n8n-task-runners.json
 
